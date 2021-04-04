@@ -60,7 +60,8 @@ int main(){
 		case 1:
 //You have to somewhat make this work and stop crashing it self up
 //You have to fix winner detection and crashes probably made by checking for game status
-			cout << "You fuck" << endl;
+//Fix starting player
+			cout << "no u" << endl;
 	}
 /*	if(i == 0){
 		cout << "There is no winner" << endl;
