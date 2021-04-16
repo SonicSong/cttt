@@ -26,12 +26,15 @@ int space;
 int round_check;
 
 int main(){
+	srand(time(0));
 	cout << "Tic Tac Toe" << endl;
 	who_first();
 	if(first == 1)
 		round_check = 1;
 	else if(first == 0)
 		round_check = 0;
+
+	//Main loop
 	do {
 		switch(round_check){
 			case 1:
@@ -56,12 +59,12 @@ int main(){
 	draw_board();
 	switch(i){
 		case 0:
-			cout << "There is no winner" << endl;
+			cout << "There is no winner";
 		case 1:
 //You have to somewhat make this work and stop crashing it self up
 //You have to fix winner detection and crashes probably made by checking for game status
 //Fix starting player
-			cout << "no u" << endl;
+			cout << "no u";
 	}
 /*	if(i == 0){
 		cout << "There is no winner" << endl;
@@ -76,6 +79,7 @@ int main(){
 	} */
 }
 
+//Used to get bot move
 void get_ran_move(){
 	random_board();
 	if(board[move_r] == 'X' || board[move_r] == 'O'){
@@ -89,6 +93,7 @@ void get_ran_move(){
 	}
 }
 
+//Used to get player move
 void get_p_move(){
 	if(board[space] == 'X' || board[space] == 'O'){
 		cout << "Please select again: ";
@@ -103,6 +108,7 @@ void get_p_move(){
 
 }
 
+//Selects who goes first
 void who_first(){
 	random_int();
 	if(new_r == 50 || new_r == 100 || new_r == 150){
@@ -114,15 +120,19 @@ void who_first(){
 	}
 }
 
+//Generates random number in range for selecting where to place X/O by bot
 void random_board(){
-	srand(time(0));
+//	srand(time(0));
 	move_r = (rand() % 9);
 }
 
+//Generates random number in range for who_first()
 void random_int(){
-	srand(time(0));
+//	srand(time(0));
 	new_r = (rand() % 150 + 1);
 }
+
+//Checks for winner
 
 // return 1 (Win & Ended)
 // return -1 (In progress)
@@ -149,12 +159,40 @@ void check_if_win(){
 	//←↓
 	}else if(board[3] == board[5] && board[5] == board[7]){
 		i = 1;
-/*	}else if(board[1] != '1' && board[2] != '2' && board[3] != '3' && board[4] != '4' && board[5] != '5' && board[6] != '6' && board[7] != '7' && board[8] != '8' && board[9] != '9'){
-		i = 0;*/
+	}else if(board[1] != '1' && board[2] != '2' && board[3] != '3' && board[4] != '4' && board[5] != '5' && board[6] != '6' && board[7] != '7' && board[8] != '8' && board[9] != '9'){
+		i = 0;
 	}else
 		i = -1;
+/*
+	//→
+	if(board[1] == board[2] == board[3]){
+		i = 1;
+	}else if(board[4] == board[5] == board[6]){
+		i = 1;
+	}else if(board[7] == board[8] == board[9]){
+		i = 1;
+	//↓
+	}else if(board[1] == board[4] == board[7]){
+		i = 1;
+	}else if(board[2] == board[5] == board[8]){
+		i = 1;
+	}else if(board[3] == board[6] == board[9]){
+		i = 1;
+	//↓→
+	}else if(board[1] == board[5] == board[9]){
+		i = 1;
+	//←↓
+	}else if(board[3] == board[5] == board[7]){
+		i = 1;
+	}else if(board[1] != '1' && board[2] != '2' && board[3] != '3' && board[4] != '4' && board[5] != '5' && board[6] != '6' && board[7] != '7' && board[8] != '8' && board[9] != '9'){
+		i = 0;
+	}else
+		i = -1;
+*/
 }
 
+
+//Displaying board
 void draw_board(){
 /*	#ifdef _WIN32
 	system("cls");
