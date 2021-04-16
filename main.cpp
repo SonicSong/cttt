@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <random>
 #include <time.h>
+#include <vector>
 
 using namespace std;
 
