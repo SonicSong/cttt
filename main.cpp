@@ -84,8 +84,8 @@ int main(){
 void get_ran_move(){
 	random_board();
 	if(board[move_r] == 'X' || board[move_r] == 'O'){
-		get_ran_move();
-//		random_board();
+//		get_ran_move();
+		random_board();
 	}else if(board[move_r] != 'X' || board[move_r] != 'O'){
 		if(first == 1)
 			board[move_r] = 'X';
